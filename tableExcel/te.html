@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="table2excel.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<table id="table">
+    <tbody>
+    <tr class="no">
+        <td>01</td>
+        <td>02</td>
+        <td>03</td>
+        <td>04</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>12</td>
+        <td>13</td>
+        <td>14</td>
+    </tr>
+    <tr>
+        <td>21</td>
+        <td>22</td>
+        <td>23</td>
+        <td>24</td>
+    </tr>
+    <tr>
+        <td>31</td>
+        <td>32</td>
+        <td>33</td>
+        <td>34</td>
+    </tr>
+    </tbody>
+</table>
+<button id="btn">导出</button>
+<script type="text/javascript">
+
+    $(function() {
+        $("#btn").click(function(){
+            $("#table").table2excel({
+                exclude: ".no",
+                name: "Excel Document Name",
+                filename: "myFileName.xls",
+                exclude_img: true,
+                exclude_links: true,
+                exclude_inputs: true
+            });
+        });
+
+    });
+
+</script>
+</body>
+</html>

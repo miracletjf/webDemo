@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圣杯布局</title>
+    <!--status4-->
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .col {
+            float: left;
+            position: relative;
+        }
+        #container{
+            padding-left: 200px;
+            padding-right: 200px;
+            background: #ff0000;
+        }
+        #content {
+            width: 100%;
+            background: #00ff00;
+        }
+        #left {
+            width: 200px;
+            margin-left: -100%;
+            right: 200px;
+        }
+        #right {
+            width: 200px;
+            margin-right: -200px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="container">
+    <div class="col" id="content">
+        Main ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain Content
+        Main ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain Content
+        Main ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain Content
+        Main ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain Content
+        Main ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain Content
+        Main ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain Content
+        Main ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain ContentMain Content
+    </div>
+    <div class="col" id="left">Left Sidebar</div>
+    <div class="col" id="right">Right Sidebar</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>等高列3</title>
+    <!--status3-->
+    <style type="text/css">
+        #containerOuter {
+            margin: 0 auto;
+            width: 960px;
+        }
+        #container{
+            background-color:#0ff;
+            float:left;
+            width:520px;
+            border-left:220px solid #0f0; /* 边框大小等于左边栏宽度，颜色和左边栏背景色一致*/
+            border-right:220px solid #f00;/* 边框大小等于右边栏宽度，颜色和右边栏背景色一致*/
+        }
+        #left{
+            float:left;
+            width:220px;
+            margin-left:-220px;
+            position:relative;
+        }
+        #content{
+            float:left;
+            width:520px;
+            margin-right:-520px;
+        }
+        #right{
+            float:right;
+            width:220px;
+            margin-right:-220px;
+            position:relative;
+        }
+    </style>
+
+</head>
+<body>
+<div id="containerOuter">
+    <div id="container">
+        <div id="content">Main content section</div>
+        <div id="left">LEFT sidebar</div>
+        <div id="right">RIGHT sidebar</div>
+    </div>
+</div>
+</body>
+</html>

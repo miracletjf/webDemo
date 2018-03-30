@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button onclick="getWindowsSize()">获取窗口大小</button>
+<script>
+    function getWindowsSize() {
+        var winHeight = window.innerHeight;
+        var winWidth = window.innerWidth;
+
+        if((typeof winWidth != 'number')){
+            if(document.compatMode == "CSS1Compat"){
+                winHeight = document.documentElement.clientHeight;
+                winWidth = document.documentElement.clientWidth;
+            }else{
+                winHeight = document.body.clientHeight;
+                winWidth = document.body.clientWidth;
+            }
+        }
+        console.log(winHeight,winWidth);
+        return {width : winWidth,height:winHeight};
+    }
+</script>
+</body>
+</html>

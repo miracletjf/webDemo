@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绍兴粮网</title>
+    <style type="text/css">
+        .sanjiao {
+                width: 0px;
+                height: 0px;
+                margin: 30px auto;
+                position: relative;
+                border: 100px solid transparent;
+                border-bottom: 100px solid #3C98D1;
+                border-right: 100px solid #5E5E5E;
+                border-top: 100px solid #3C98D1;*/
+            }
+        .yuanzhu {
+               position: relative;
+               height: 200px;
+               width: 50px;
+               background: #5E5E5E;
+               margin: 30px auto;
+               z-index: 999;
+            }
+        .yuanzhu:before {
+        　　　　position: absolute;
+        　　　　top: -10px;
+                display: block;
+        　　　　content: "";
+        　　　　width: 50px;
+        　　　　height: 20px;
+        　　　　border-radius: 50%;
+        　　　　background: #A8A8A8;
+        　　　　z-index: 99;
+        　　}
+
+        .yuanzhu:after {
+        　　　　position: absolute;
+        　　　　bottom: -10px;
+                display: block;
+        　　　　content: "";
+        　　　　width: 50px;
+        　　　　height: 20px;
+        　　　　border-radius: 50%;
+        　　　　background: #5E5E5E;
+        　　　　z-index: 9;
+        　　}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+
+        <div class="sanjiao"></div>
+
+
+
+        <div class="yuanzhu"></div>
+
+    </div>
+</body>
+</html>

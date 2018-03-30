@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mono test</title>
+	<script type="text/javascript" src="t.js"></script>
+	<script type="text/javascript">
+		function init(){
+			var box = new mono.DataBox();
+			var network = new mono.Network3D(box,null,monoCanvas);
+			mono.Utils.autoAdjustNetworkBounds(network,document.documentElement,'clientWidth','clientHeight');
+
+			var pointLight = new mono.PointLight(0xFFFFFF,1.5);
+			pointLight.setPosition(1000,1000,1000);
+			box.add(pointLight);
+			box.add(new mono.AmbientLight(0x888888));
+
+			var cube = new mono.Cube(100,100,100);
+			cube.s({
+				'm.type': 'phong',
+				'm.color': 'red',
+				'm.ambient': 'red',
+			});
+
+			box.add(cube);
+
+            var rotationFunc = function(){
+                var position = cube.getPosition();
+
+                var axis = new mono.Vec3(0, 1, 0);
+                var angle = Math.PI/180;
+                var center = new mono.Vec3(50, 0, 100);
+                var newPosition = position.rotateFromAxisAndCenter(axis, angle, center);
+
+                cube.setPosition(newPosition);
+            }
+
+            setInterval(rotationFunc, 10);
+		}
+
+
+
+
+	</script>
+</head>
+<body onload = 'init()'>
+    <div>
+        <canvas id="monoCanvas"/>
+    </div>
+</body>
+</html>

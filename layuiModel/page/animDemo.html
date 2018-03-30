@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../plug-in_unit/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/Style.css">
+    <title>动画demo</title>
+</head>
+<body>
+    <div class="layui-layout-admin layui-anim layui-anim-upbit">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>内置css3动画一览表</legend>
+            <ul class="mr-anim-demo mr-demo-icon">
+                <li>
+                    <div class="layui-anim" data-anim="layui-anim-up">从最底部往上滑入</div>
+                    <div class="anim-name">layui-anim-up</div>
+                </li>
+                <li>
+                    <div class="layui-anim" data-anim="layui-anim-upbit">微微往上滑入</div>
+                    <div class="anim-name">layui-anim-laybit</div>
+                </li>
+                <li>
+                    <div class="layui-anim" data-anim="layui-anim-scale">平滑放大</div>
+                    <div class="anim-name"> layui-anim-scale</div>
+                </li>
+                <li>
+                    <div class="layui-anim" data-anim="layui-anim-scaleSpring">弹簧式放大</div>
+                    <div class="anim-name"> layui-anim-scaleSpring</div>
+                </li>
+                <li>
+                    <div class="layui-anim" data-anim="layui-anim-fadein">渐现</div>
+                    <div class="anim-name">layui-anim-fadein</div>
+                </li>
+                <li>
+                    <div class="layui-anim" data-anim="layui-anim-fadeout">渐隐</div>
+                    <div class="anim-name">layui-anim-fadeout</div>
+                </li>
+                <li>
+                    <div class="layui-anim" data-anim="layui-anim-rotate">360度旋转</div>
+                    <div class="anim-name">layui-anim-rotate</div>
+                </li>
+                <li>
+                    <div class="layui-anim" data-anim="layui-anim-rotate layui-anim-loop">循环动画</div>
+                    <div class="anim-name">追加：layui-anim-loop</div>
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>进度条,依赖加载组件element</legend>
+            <br>
+            <div class="layui-progress">
+                <div class="layui-progress-bar" lay-percent="10%"></div>
+            </div>
+            <br>
+            <div class="layui-progress">
+                <div class="layui-progress-bar layui-bg-orange" lay-percent="30%"></div>
+            </div>
+            <br>
+            <div class="layui-progress" lay-showpercent="true">
+                <div class="layui-progress-bar layui-bg-green" lay-percent="60%"></div>
+            </div>
+            <br>
+            <div class="layui-progress layui-progress-big" lay-showpercent="true">
+                <div class="layui-progress-bar layui-bg-red" lay-percent="80%"></div>
+            </div>
+            <br>
+            <div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="demo">
+                <div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div>
+            </div>
+            <div style="margin: 20px 0;">
+                <button class="layui-btn mr-progress-active" data-type="setPercent">设置50%</button>
+                <button class="layui-btn mr-progress-active" data-type="loading">动态滚动条</button>
+            </div>
+        </fieldset>
+    </div>
+
+    <script src="../plug-in_unit/layui/layui.js"></script>
+
+    <script>
+        layui.use(['element','jquery'],function () {
+           var element =layui.element
+               ,$ = layui.jquery;
+
+            //动画事件
+            $('.mr-anim-demo .layui-anim').on('click',function () {
+                var othis = $(this), anim = othis.data('anim');
+
+                //取消循环动画
+                if(othis.hasClass('layui-anim-loop')){
+                    return othis.removeClass('layui-anim-loop');
+                }
+
+                othis.removeClass(anim);
+
+                setTimeout(function () {
+                    othis.addClass(anim);
+                });
+                //渐隐
+                if(anim === 'layui-anim-fadeout'){
+                    setTimeout(function () {
+                        othis.removeClass('layui-anim-fadeout');
+                    },1300);
+                }
+            });
+
+            //进度条
+            var active = {
+                setPercent: function () {
+                    element.progress('demo','50%');
+                },
+                loading: function (othis) {
+                    var DISABLED = 'layui-btn-disabled';
+                    var n=0,timer = setInterval(function () {
+                        n += Math.random()*10|0;
+
+                        if(n>100){
+                            n = 100;
+                            clearInterval(timer);
+                            othis.removeClass(DISABLED);
+                        }
+
+                        element.progress('demo',n+'%');
+                    },300+Math.random()*1000);
+
+                    othis.addClass(DISABLED);
+
+                }
+            };
+
+            $('.mr-progress-active').on('click',function () {
+                var othis = $(this),type = othis.data('type');
+                active[type] ? active[type].call(this,othis) : '';
+            });
+        });
+    </script>
+</body>
+</html>

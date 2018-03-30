@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D-01</title>
+    <style type="text/css">
+        .wrap {
+
+        }
+        .box {
+            text-align: center;
+        }
+        
+        .trans-box .trans-item {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 20px;
+            width: 180px;
+            height: 180px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        /* 基本变化 父级设置 perspective */
+        .trans-box.status1 {
+            perspective: 360px;
+        }
+        .trans-box.status1 .trans-item {
+            background: #c56565;
+        }
+        .trans-box.status1 .trans-item:nth-child(1) {
+            transform: rotateX(45deg);
+        }
+        .trans-box.status1 .trans-item:nth-child(2) {
+            transform: rotateY(45deg);
+        }
+        .trans-box.status1 .trans-item:nth-child(3) {
+            transform: rotateZ(45deg);
+        }
+
+
+        /* 基本变化 子级设置 perspective */
+        .trans-box.status2 .trans-item {
+            background: #65c5c1;
+        }
+        .trans-box.status2 .trans-item:nth-child(1) {
+            transform: perspective(360px) rotateX(45deg);
+        }
+        .trans-box.status2 .trans-item:nth-child(2) {
+            transform: perspective(360px) rotateY(45deg);
+        }
+        .trans-box.status2 .trans-item:nth-child(3) {
+            transform: perspective(360px) rotateZ(45deg);
+        }
+
+
+        /* 视点中心 perspective-origin */
+        .trans-box.status3 {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 20px auto;
+            /* 设置视点距离 */
+            /* perspective: 100000px; */
+            /*视点位置*/
+            /* perspective-origin: 50% 50%; */
+            /*以3d形式查看*/
+            transform-style: preserve-3d;
+            /*不可透视（背部隐藏）*/
+            backface-visibility: hidden;
+            transition: all 1s ease-in-out;
+
+        }
+        .trans-box.status3:hover {
+            transform: rotateX(180deg) rotateY(45deg) rotateZ(45deg);
+
+        }
+        .trans-box.status3 .trans-item {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 30px;
+            font-weight: bold;
+            background: #f00;
+
+        }
+        .trans-box.status3 .trans-item:nth-child(1) {
+            transform: rotateY(0deg) translateZ(90px);
+            background: #ff0000;
+        }
+        .trans-box.status3 .trans-item:nth-child(2) {
+            transform: rotateY(180deg) translateZ(90px) ;
+            background: #00ff00;
+        }
+        .trans-box.status3 .trans-item:nth-child(3) {
+            transform: rotateY(90deg) translateZ(90px);
+            background: #0000ff;
+        }
+        .trans-box.status3 .trans-item:nth-child(4) {
+            transform: rotateX(-90deg) translateZ(90px);
+            background: #ffff00;
+        }
+        .trans-box.status3 .trans-item:nth-child(5) {
+            transform: rotateY(-90deg) translateZ(90px);
+            background: #ff00ff;
+        }
+        .trans-box.status3 .trans-item:nth-child(6) {
+            transform: rotateX(90deg) translateZ(90px);
+            background: #00ffff;
+        }
+
+        /* 旋转木马 */
+        .trans-box.status4 {
+            position: relative;
+            transform-style: preserve-3d;
+            /* backface-visibility: hidden; */
+            transition: all 1s ease;
+            transform: rotateY(0);
+        }
+
+        .trans-box.status4 .trans-item {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -100px;
+            width: 200px;
+            height: 100px;
+            font-size: 20px;
+        }
+        .trans-box.status4 .trans-item:nth-child(1) {
+            transform: rotateY(0) translateZ(280px);
+            background: #d06767;
+        }
+        .trans-box.status4 .trans-item:nth-child(2) {
+            transform: rotateY(40deg) translateZ(280px);
+            background: #67d0aa;
+        }
+        .trans-box.status4 .trans-item:nth-child(3) {
+            transform: rotateY(80deg) translateZ(280px);
+            background: #c167d0;
+        }
+        .trans-box.status4 .trans-item:nth-child(4) {
+            transform: rotateY(120deg) translateZ(280px);
+            background: #6967d0;
+        }
+        .trans-box.status4 .trans-item:nth-child(5) {
+            transform: rotateY(160deg) translateZ(280px);
+            background: #337777;
+        }
+        .trans-box.status4 .trans-item:nth-child(6) {
+            transform: rotateY(200deg) translateZ(280px);
+            background: #ad6810;
+        }
+        .trans-box.status4 .trans-item:nth-child(7) {
+            transform: rotateY(240deg) translateZ(280px);
+            background: #377898;
+        }
+        .trans-box.status4 .trans-item:nth-child(8) {
+            transform: rotateY(280deg) translateZ(280px);
+            background: #8c9237;
+        }
+        .trans-box.status4 .trans-item:nth-child(9) {
+            transform: rotateY(320deg) translateZ(280px);
+            background: #598a49;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="box">
+        <h3>基础变化--rotate 父级 perspective</h3>
+        <div class="trans-box status1">
+            <span class="trans-item">rotateX(45deg)</span>
+            <span class="trans-item">rotateY(45deg)</span>
+            <span class="trans-item">rotateZ(45deg)</span>
+        </div>
+    </div>
+    <div class="box">
+        <h3>基础变化--rotate 子级 perspective</h3>
+        <div class="trans-box status2">
+            <span class="trans-item">perspective(200px) rotateX(45deg)</span>
+            <span class="trans-item">perspective(200px) rotateY(45deg)</span>
+            <span class="trans-item">perspective(200px) rotateZ(45deg)</span>
+        </div>
+    </div>
+    <div class="box">
+        <h3>视点中心--perspective-origin</h3>
+        <div class="trans-box status3">
+            <span class="trans-item">1</span>
+            <span class="trans-item">2</span>
+            <span class="trans-item">3</span>
+            <span class="trans-item">4</span>
+            <span class="trans-item">5</span>
+            <span class="trans-item">6</span>
+        </div>
+    </div>
+    <div class="box">
+        <h3>旋转木马</h3>
+        <div class="trans-box status4" id="rotate">
+            <span class="trans-item">1</span>
+            <span class="trans-item">2</span>
+            <span class="trans-item">3</span>
+            <span class="trans-item">4</span>
+            <span class="trans-item">5</span>
+            <span class="trans-item">6</span>
+            <span class="trans-item">7</span>
+            <span class="trans-item">8</span>
+            <span class="trans-item">9</span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    (function() {
+        var transform = function(element,value,key){
+            key = key || 'Transform';
+            ['Moz','O','Ms','Webkit',''].forEach(function(prefix){
+                element.style[prefix+key] = value;
+            });
+            return element;
+        };
+
+        var flag = 0, rotate = document.getElementById('rotate'),size = rotate.getElementsByClassName('trans-item').length;
+        rotate.addEventListener('click',function(){
+            transform(rotate,'rotateY(-'+ (++flag)*360/size +'deg)');
+        },false);
+    })();
+</script>
+
+<script type="text/javascript">
+    //获取浏览器类型，ie版本
+    function browserType(){
+        var userAgent = navigator.userAgent;
+    }
+
+    var type = browserType();
+</script>
+</body>
+</html>

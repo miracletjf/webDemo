@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>等高列4</title>
+    <!--status4-->
+    <style type="text/css">
+        body{
+            margin:0 100px;
+            padding:0 220px 0 220px;
+        }
+        #container{
+            background-color:#0ff;
+            float:left;
+            width:100%;
+            border-left:220px solid #0f0;
+            border-right:220px solid #f00;
+            margin-left:-220px;
+            margin-right:-220px;
+            display:inline; /* So IE plays nice */
+        }
+        #left{
+            float:left;
+            width:220px;
+            margin-left:-220px;
+            position:relative;
+        }
+        #content{
+            float:left;
+            width:100%;
+            margin-right:-100%;
+        }
+        #right{
+            float:right;
+            width:220px;
+            margin-right:-220px;
+            position:relative;
+        }
+    </style>
+
+</head>
+<body>
+<div id="container">
+    <div id="content">Main Content</div>
+    <div id="left">Left Sidebar</div>
+    <div id="right">Right Sidebar</div>
+</div>
+</body>
+</html>

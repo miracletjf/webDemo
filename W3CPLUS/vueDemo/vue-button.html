@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+    <title>vue-button</title>
+    <style>
+        .block {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap" id="app">
+        <div class="container">
+            <div class="block">
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-secondary">Secondary</button>
+                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-danger">Danger</button>
+                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-info">Info</button>
+                <button type="button" class="btn btn-light">Light</button>
+                <button type="button" class="btn btn-dark">Dark</button>
+                <button type="button" class="btn btn-link">Link</button>
+            </div>
+            <div class="block">
+                <button type="button" class="btn btn-outline-primary">Primary</button>
+                <button type="button" class="btn btn-outline-secondary">Secondary</button>
+                <button type="button" class="btn btn-outline-success">Success</button>
+                <button type="button" class="btn btn-outline-danger">Danger</button>
+                <button type="button" class="btn btn-outline-warning">Warning</button>
+                <button type="button" class="btn btn-outline-info">Info</button>
+                <button type="button" class="btn btn-outline-light">Light</button>
+                <button type="button" class="btn btn-outline-dark">Dark</button>
+                <button type="button" class="btn btn-outline-link">Link</button>
+
+            </div>
+            <div class="block">
+                <vue-button btn-text="Primary" btn-type="primary"></vue-button>
+                <vue-button btn-text="Secondary" btn-type="secondary"></vue-button>
+                <vue-button btn-text="Success" btn-type="success"></vue-button>
+                <vue-button btn-text="Danger" btn-type="danger"></vue-button>
+                <vue-button btn-text="Warning" btn-type="warning"></vue-button>
+                <vue-button btn-text="Info" btn-type="info"></vue-button>
+                <vue-button btn-text="Light" btn-type="light"></vue-button>
+                <vue-button btn-text="Dark" btn-type="dark"></vue-button>
+                <vue-button btn-text="Link" btn-type="link"></vue-button>
+            </div>
+            <div class="block">
+                <vue-button btn-text="Primary" btn-outline="primary"></vue-button>
+                <vue-button btn-text="Secondary" btn-outline="secondary"></vue-button>
+                <vue-button btn-text="Success" btn-outline="success"></vue-button>
+                <vue-button btn-text="Danger" btn-outline="danger"></vue-button>
+                <vue-button btn-text="Warning" btn-outline="warning"></vue-button>
+                <vue-button btn-text="Info" btn-outline="info"></vue-button>
+                <vue-button btn-text="Light" btn-outline="light"></vue-button>
+                <vue-button btn-text="Dark" btn-outline="dark"></vue-button>
+                <vue-button btn-text="Link" btn-outline="link"></vue-button>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+
+
+        import vueButton from "./components/Button.vue";
+        export default {
+            name: "App",
+            components: {
+                vueButton
+            }
+        };
+    </script>
+</body>
+</html>

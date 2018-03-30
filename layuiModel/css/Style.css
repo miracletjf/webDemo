@@ -1,0 +1,284 @@
+@charset "utf-8";
+/*region 常用变量配置*/
+/*endregion*/
+/*region 模块配置*/
+/*endregion*/
+html,
+body {
+  width: 100%;
+  font-size: 14px;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+time,
+mark,
+audio,
+video,
+input,
+textarea,
+tr,
+th,
+td,
+:before,
+:after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 14px;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  background: #ffffff;
+  overflow-x: hidden;
+}
+i,
+em {
+  font-style: normal;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b {
+  font-weight: normal;
+}
+a,
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+}
+input {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+}
+input,
+textarea {
+  line-height: 1.2em;
+  outline: none;
+  -webkit-appearance: none;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+p {
+  -ms-word-break: break-all;
+  word-break: break-all;
+  text-align: justify;
+}
+input::-webkit-input-placeholder {
+  line-height: 1.2em;
+}
+.wrap {
+  width: 100%;
+  min-width: 1200px;
+}
+/*region 常用布局*/
+.clear-float:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.float-l {
+  float: left;
+}
+.float-r {
+  float: right;
+}
+.flex-box {
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: box!important;
+}
+.box-flex1 {
+  -moz-box-flex: 1;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+}
+.center-cotar {
+  display: block;
+  margin: 0 auto;
+  width: 1200px;
+}
+/*endregion*/
+/* region 布局相关 */
+.layui-tab-item {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+.mr-transition {
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+.layui-layout-admin .mr-site-title {
+  position: fixed;
+  left: 200px;
+  top: 65px;
+  right: 0;
+}
+.layui-layout-admin .mr-tab-change-btn {
+  position: absolute;
+  top: 11px;
+  left: 200px;
+  padding: 0 4px;
+  cursor: pointer;
+}
+.layui-layout-admin .mr-tab-change-btn .layui-icon {
+  margin-right: 0;
+  font-size: 26px;
+}
+.layui-layout-admin .layui-layout-left {
+  left: 240px;
+}
+.layui-layout-admin .layui-tab-content {
+  padding: 10px 5px 0 5px;
+}
+.layui-layout-admin .mr-site-body {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.layui-layout-admin .layui-tab-content .layui-tab-item {
+  font-size: 0;
+}
+.layui-layout-admin .layui-row-demo .layui-col-in-box {
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+}
+.layui-layout-admin .mr-layout-bg-1 {
+  background: #79C48C;
+}
+.layui-layout-admin .mr-layout-bg-2 {
+  background: #8bcc9b;
+}
+.layui-layout-admin .mr-layout-bg-3 {
+  background: #67bc7d;
+}
+.layui-layout-admin .mr-demo-icon {
+  margin-top: 20px;
+  font-size: 0;
+}
+.layui-layout-admin .mr-demo-icon li {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 20px 0;
+  margin-bottom: -1px;
+  margin-right: -1px;
+  width: 127px;
+  line-height: 25px;
+  border: solid 1px #e2e2e2;
+  font-size: 14px;
+  text-align: center;
+  color: #666;
+  cursor: pointer;
+}
+.layui-layout-admin .mr-demo-icon li .layui-icon {
+  display: inline-block;
+  font-size: 36px;
+}
+.layui-layout-admin .mr-demo-icon li .name {
+  color: #c2c2c2;
+}
+.layui-layout-admin .mr-demo-icon li .fontclass {
+  display: none;
+}
+.layui-layout-admin .mr-demo-icon li:hover {
+  background-color: #f2f2f2;
+}
+.layui-layout-admin .mr-anim-demo li {
+  width: 224px;
+}
+.layui-layout-admin .mr-anim-demo li .layui-anim {
+  display: inline-block;
+  vertical-align: middle;
+  width: 127px;
+  height: 127px;
+  line-height: 127px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #009688;
+  text-align: center;
+}
+.layui-layout-admin .mr-anim-demo li .anim-name {
+  font-size: 16px;
+}
+.layui-layout-admin .mr-tab-demo {
+  margin: 10px 0;
+}
+/* endregion */

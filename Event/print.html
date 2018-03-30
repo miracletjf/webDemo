@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+    	
+    </style>
+</head>
+<body>
+<span>不用打印</span>
+<span>不用打印</span>
+<span>不用打印</span>
+<span>不用打印</span>
+<!--startprint-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+	<tr>
+		<th width="91" >商品类型</th>
+		<th width="131" >成交数量(kg)</th>
+		<th width="123" >成交金额(元）</th>
+		<th width="117" >成交时间</th>
+	</tr>
+	<tr>
+		<td align="left">小麦</td>
+		<td align="left">10000</td>
+		<td align="left">22000</td>
+		<td align="left">10-18 10:30</td>
+	</tr>
+	<tr class="odd">
+		<td align="left">小麦</td>
+		<td align="left">10000</td>
+		<td align="left">22000</td>
+		<td align="left">10-18 10:30</td>
+	</tr>
+	<tr>
+		<td align="left">小麦</td>
+		<td align="left">10000</td>
+		<td align="left">22000</td>
+		<td align="left">10-18 10:30</td>
+	</tr>
+	<tr class="odd">
+		<td align="left">小麦</td>
+		<td align="left">10000</td>
+		<td align="left">22000</td>
+		<td align="left">10-18 10:30</td>
+	</tr>
+	<tr>
+		<td align="left">小麦</td>
+		<td align="left">10000</td>
+		<td align="left">22000</td>
+		<td align="left">10-18 10:30</td>
+	</tr>
+	<tr class="odd">
+		<td align="left">小麦</td>
+		<td align="left">10000</td>
+		<td align="left">22000</td>
+		<td align="left">10-18 10:30</td>
+</tr>
+</table>
+
+
+<!--endprint-->
+
+<input type="button" onclick="doPrint()" value="打印">
+<script type="text/javascript">
+	function doPrint() {
+		var bdHtml = window.document.body.innerHTML;
+		var sprnstr = "<!--startprint-->";
+		var eprnstr = "<!--endprint-->";
+		var start = bdHtml.indexOf(sprnstr)+17;
+		var prnHtml = bdHtml.substr(start);
+		prnHtml = prnHtml.substr(0,prnHtml.indexOf(eprnstr));
+		window.document.body.innerHTML = prnHtml;
+		window.print();
+	}
+</script>
+</body>
+</html>

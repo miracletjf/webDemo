@@ -1,0 +1,196 @@
+@charset "utf-8";
+
+@import "MtConfig.less";
+
+//初始化页面
+#Mt_initialize > .initialize(@minWidth,@defaultBg);
+
+/*region 常用布局*/
+//清除浮动
+.clear-float:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+//左浮动
+.float-l {
+  float: left;
+}
+//右浮动
+.float-r {
+  float: right;
+}
+//弹性盒子
+.flex-box {
+  display: -moz-box!important;
+  display: -webkit-box!important;
+  display: box!important;
+}
+.box-flex(@n: 1) {
+  -moz-box-flex: @n;
+  -webkit-box-flex: @n;
+  box-flex: @n;
+}
+.box-flex1 {
+  .box-flex();
+}
+//居中盒子
+.center-cotar {
+  display: block;
+  margin: 0 auto;
+  width: @minWidth;
+}
+//文字超出部分隐藏
+.overflow-text() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+//动画
+.transition(@property: all,@duration: 0.3s,@type: ease-in-out,@delay: 0s) {
+  //css3过度
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+
+.transform(@name,@argu) {
+  //css3变换
+  -webkit-transform: e(%('%s(%s)',@name,@argu));
+  -moz-transform: e(%('%s(%s)',@name,@argu));
+  -ms-transform: e(%('%s(%s)',@name,@argu));
+  -o-transform: e(%('%s(%s)',@name,@argu));
+  transform: e(%('%s(%s)',@name,@argu));
+}
+/*endregion*/
+
+/* region 布局相关 */
+
+.layui-tab-item {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+.mr-transition {
+  .transition();
+}
+.layui-layout-admin {
+  //tab标题与内容位置确定
+  .mr-site-title {
+    position: fixed;
+    left: 200px;
+    top: 65px;
+    right: 0;
+  }
+  .layui-form-item .layui-form-label {
+
+  }
+  .mr-tab-change-btn {
+    position: absolute;
+    top: 11px;
+    left: 200px;
+    padding: 0 4px;
+    cursor: pointer;
+    .layui-icon {
+      margin-right: 0;
+      font-size: 26px;
+    }
+  }
+
+  .layui-layout-left {
+    left: 240px;
+  }
+
+
+  .layui-tab-content {
+    padding: 10px 5px 0 5px;
+  }
+
+  .mr-site-body {
+    position: absolute;
+    top: 36px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .layui-tab-content .layui-tab-item{
+    font-size: 0;
+  }
+  //实例布局背景色
+  .layui-row-demo .layui-col-in-box {
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+  }
+  .mr-layout-bg-1 {
+    background: @mainColor;
+  }
+  .mr-layout-bg-2 {
+    background: lighten(@mainColor,5%);
+  }
+  .mr-layout-bg-3 {
+    background: darken(@mainColor,5%);
+  }
+
+  //图标排列
+  .mr-demo-icon {
+    margin-top: 20px;
+    font-size: 0;
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      padding: 20px 0;
+      margin-bottom: -1px;
+      margin-right:  -1px;
+      width: 127px;
+      line-height: 25px;
+      border: solid 1px #e2e2e2;
+      font-size: 14px;
+      text-align: center;
+      color: #666;
+      cursor: pointer;
+      .layui-icon {
+        display: inline-block;
+        font-size: 36px;
+      }
+      .name {
+        color: #c2c2c2;
+      }
+      .fontclass {
+        display: none;
+      }
+      &:hover {
+        background-color: #f2f2f2;
+      }
+    }
+  }
+
+
+  //内置css3动画一览表
+  .mr-anim-demo {
+    li {
+      width: 224px;
+      .layui-anim {
+        display: inline-block;
+        vertical-align: middle;
+        width: 127px;
+        height: 127px;
+        line-height: 127px;
+        border-radius: 50%;
+        color: #fff;
+        background-color: #009688;
+        text-align: center;
+      }
+      .anim-name {
+        font-size: 16px;
+      }
+    }
+  }
+
+  //导航条demo
+  .mr-tab-demo {
+    margin: 10px 0;
+  }
+}
+/* endregion */

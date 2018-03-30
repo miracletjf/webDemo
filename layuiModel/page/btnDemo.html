@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../plug-in_unit/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/Style.css">
+    <title>按钮demo</title>
+</head>
+<body>
+    <div class="layui-layout-admin layui-anim layui-anim-upbit">
+        <fieldset class="layui-field-title layui-elem-field">
+            <legend>用法</legend>
+            <br>
+            <button class="layui-btn">button标签按钮</button>
+            <a class="layui-btn">a标签按钮</a>
+            <input type="button" class="layui-btn" value="input按钮"/>
+        </fieldset>
+
+        <fieldset class="layui-field-title layui-elem-field">
+            <legend>主题</legend>
+            <br>
+            <button class="layui-btn layui-btn-primary">原始按钮</button>
+            <button class="layui-btn">默认按钮</button>
+            <button class="layui-btn layui-btn-normal">百搭按钮</button>
+            <button class="layui-btn layui-btn-warm">暖色按钮</button>
+            <button class="layui-btn layui-btn-danger">警告按钮</button>
+            <button class="layui-btn layui-btn-disabled">禁用按钮</button>
+        </fieldset>
+
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>尺寸</legend>
+            <br>
+            <button class="layui-btn layui-btn-lg">大兴按钮</button>
+            <button class="layui-btn">默认按钮</button>
+            <button class="layui-btn layui-btn-sm">小型按钮</button>
+            <button class="layui-btn layui-btn-xs">迷你按钮</button>
+            <br>
+            <br>
+            <button class="layui-btn layui-btn-fluid">流体按钮（最大化适应）</button>
+        </fieldset>
+
+        <fieldset class="layui-elem-field layui-field-title">
+            <br>
+            <legend>圆角</legend>
+            <button class="layui-btn layui-btn-primary layui-btn-radius">原始按钮</button>
+            <button class="layui-btn layui-btn-radius">默认按钮</button>
+            <button class="layui-btn layui-btn-normal layui-btn-radius">百搭按钮</button>
+            <button class="layui-btn layui-btn-warm layui-btn-radius">暖色按钮</button>
+            <button class="layui-btn layui-btn-danger layui-btn-radius">警告按钮</button>
+            <button class="layui-btn layui-btn-disabled layui-btn-radius">禁用按钮</button>
+        </fieldset>
+
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>图标按钮</legend>
+            <br>
+            <button class="layui-btn"><i class="layui-icon">&#xe608;</i>添加</button>
+            <button class="layui-btn"><i class="layui-icon">&#x1002;</i></button>
+            <button class="layui-btn"><i class="layui-icon">&#xe603;</i></button>
+            <button class="layui-btn"><i class="layui-icon">&#xe602;</i></button>
+            <button class="layui-btn"><i class="layui-icon">&#xe642;</i></button>
+            <button class="layui-btn"><i class="layui-icon">&#xe640;</i></button>
+            <button class="layui-btn"><i class="layui-icon">&#xe600;</i></button>
+            <br>
+            <br>
+            <button class="layui-btn layui-btn-sm layui-btn-primary"><i class="layui-icon">&#xe608;</i>添加</button>
+            <button class="layui-btn layui-btn-sm layui-btn-primary"><i class="layui-icon">&#x1002;</i></button>
+            <button class="layui-btn layui-btn-sm layui-btn-primary"><i class="layui-icon">&#xe603;</i></button>
+            <button class="layui-btn layui-btn-sm layui-btn-primary"><i class="layui-icon">&#xe602;</i></button>
+            <button class="layui-btn layui-btn-sm layui-btn-primary"><i class="layui-icon">&#xe642;</i></button>
+            <button class="layui-btn layui-btn-sm layui-btn-primary"><i class="layui-icon">&#xe640;</i></button>
+            <button class="layui-btn layui-btn-sm layui-btn-primary"><i class="layui-icon">&#xe600;</i></button>
+            <br>
+        </fieldset>
+
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>按钮组</legend>
+            <br>
+            <div class="layui-btn-group">
+                <button class="layui-btn"><i class="layui-icon">&#xe654;</i></button>
+                <button class="layui-btn"><i class="layui-icon">&#xe642;</i></button>
+                <button class="layui-btn"><i class="layui-icon">&#xe640;</i></button>
+            </div>
+            <div class="layui-btn-group">
+                <button class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon">&#xe654;</i></button>
+                <button class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon">&#xe642;</i></button>
+                <button class="layui-btn layui-btn-primary layui-btn-sm"><i class="layui-icon">&#xe640;</i></button>
+            </div>
+        </fieldset>
+    </div>
+    <script src="../plug-in_unit/layui/layui.js"></script>
+
+    <script>
+        layui.use(['element','jquery','table'],function () {
+           var element =layui.element
+               ,$ = layui.jquery
+               ,table = layui.table;
+
+
+            table.render({
+               elem: '#table_demo'
+                ,height: 315
+                ,url: '../json/table.json'        //数据接口
+                ,cols:[[
+                    {field:'id',title:'ID',width: 80,sort: true, fixed: 'left'}
+                    ,{field:'username',title:'用户名',width: 80}
+                    ,{field:'sex',title:'性别',width: 80,sort: true}
+                    ,{field:'city',title:'城市',width: 80,sort: true}
+                    ,{field:'sign',title:'签名',width: 180}
+                    ,{field:'experience',title:'积分',width: 80}
+                    ,{field:'score',title:'评分',width: 80}
+                    ,{field: 'classify', title: '职业', width: 80}
+                    ,{field: 'wealth', title: '财富', width: 135, sort: true}
+                ]]
+            });
+
+
+        });
+    </script>
+</body>
+</html>

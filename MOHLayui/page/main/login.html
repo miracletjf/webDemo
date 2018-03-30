@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/Style.css">
+    <link rel="stylesheet" href="../../plug-in_unit/layui/css/layui.css">
+    <title>用户登录</title>
+</head>
+<body>
+    <div class="wrap m-login">
+        <div class="bg"></div>
+        <div class="g-title">
+            <span class="text">
+                浙江省舟山储备中转粮库粮食出入库业务信息系统
+            </span>
+        </div>
+        <div class="content">
+            <div class="img-box">
+                <div class="title"></div>
+            </div>
+            <div class="login-box">
+                <form class="layui-form" action="">
+                    <div class="title">
+                        登&nbsp;&nbsp;录
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-form-label">用户名</div>
+                        <div class="layui-input-block f-clear-text">
+                            <input type="text" name="username" class="layui-input" placeholder="用户名/账号" autocomplete="off" lay-verify="required" lay-verType="tips">
+                            <i class="clear-btn mt-icon" title="清空">&#xe635;</i>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-form-label">密&nbsp;&nbsp;&nbsp;&nbsp;码</div>
+                        <div class="layui-input-block f-clear-text">
+                            <input type="password" name="password" class="layui-input" lay-verify="required" placeholder="密码">
+                            <i class="clear-btn mt-icon" title="清空">&#xe635;</i>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-form-label">验证码</div>
+                        <div class="layui-input-block m-code">
+                            <input type="text" name="code" class="layui-input" lay-verify="required" placeholder="验证码">
+                        </div>
+                        <div class="m-vcode float-l"><img src="../../images/code.jpg" alt=""></div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block btn-box">
+                            <button class="layui-btn layui-btn-fluid"lay-submit lay-filter="submitBtn">登&nbsp;&nbsp;录</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../plug-in_unit/layui/layui.js"></script>
+    <script>
+        layui.use(['element','jquery','form'],function () {
+            var element =layui.element
+                ,form = layui.form,
+                $ = layui.jquery;
+
+            //表单(监听提交)
+            form.on('submit(submitBtn)',function (data) {
+                console.log(data);
+                layer.msg(JSON.stringify(data.field));
+                return false;
+            });
+
+            $('.clear-btn').on('click',function () {
+                $(this).parent().find('input').val("");
+            })
+
+        });
+    </script>
+</body>
+</html>

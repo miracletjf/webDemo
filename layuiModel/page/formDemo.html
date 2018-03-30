@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../plug-in_unit/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/Style.css">
+    <title>表单demo</title>
+</head>
+<body>
+    <div class="layui-layout-admin layui-anim layui-anim-upbit">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>常规用法</legend>
+            <form action="" class="layui-form">
+                <div class="layui-form-item">
+                    <label for="" class="layui-form-label">输入框</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="title" required
+                               lay-verify="required" placeholder="请输入标题" autocomplete="off">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="" class="layui-form-label">密码框</label>
+                    <div class="layui-input-inline">
+                        <input type="password" class="layui-input" name="password" required
+                               lay-verify="required" placeholder="密码" autocomplate="off">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">辅助文字</div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="" class="layui-form-label">选择框</label>
+                    <div class="layui-input-block">
+                        <select name="city" lay-verify="required">
+                            <option value="">请选择</option>
+                            <option value="0">北京</option>
+                            <option value="1">上海</option>
+                            <option value="2">广州</option>
+                            <option value="3">深圳</option>
+                            <option value="4">杭州</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="" class="layui-form-label">复选框</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="like[write]" title="写作">
+                        <input type="checkbox" name="like[read]" title="阅读" checked>
+                        <input type="checkbox" name="like[dai]" title="发呆" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="" class="layui-form-label">开关</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="switch" lay-skin="switch">
+                        <input type="checkbox" name="switch" lay-skin="switch" lay-text="开|关" checked>
+                        <input type="checkbox" name="switch" lay-skin="switch" lay-text="on|off">
+                        <input type="checkbox" name="switch" lay-skin="switch" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="" class="layui-form-label">单选框</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sex" value="男" title="男" checked>
+                        <input type="radio" name="sex" value="女" title="女">
+                        <input type="radio" name="sex" value="中" title="中" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="" class="layui-form-label">文本框</label>
+                    <div class="layui-input-block">
+                        <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+
+    <script src="../plug-in_unit/layui/layui.js"></script>
+
+    <script>
+        layui.use(['element','jquery','form'],function () {
+           var element =layui.element
+               ,form = layui.form;
+
+            //表单(监听提交)
+            form.on('submit(formDemo)',function (data) {
+                console.log(data.field);
+                layer.msg(JSON.stringify(data.field));
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

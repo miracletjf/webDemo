@@ -1,0 +1,64 @@
+<!doctype html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="button" id="btn" value="click">
+        <input type="button" id="btn2" value="click2">
+    </div>
+
+    <script>
+        var btn = document.getElementById('btn');
+        var btn2 = document.getElementById('btn2');
+        var handler = function () {
+            alert("clicked");
+            EventUtil.removeHandler(btn, "click", handler);
+        };
+
+        var EventUtil = {
+            addHandler: function (element, type, handler) {
+                if(element.addEventListener){
+                    element.addEventListener(type, handler, false);
+                }else if(element.attachEvent){
+                    element.attachEvent("on"+type,handler);
+                }else {
+                    element["on"+type] = handler;
+                }
+            },
+            removeHandler: function (element, type, handler) {
+                if(element.removeEventListener){
+                    element.removeEventListener(type,handler,false);
+                }else if(element.detachEvent){
+                    element.detachEvent("on"+type,handler);
+                }else {
+                    element["on"+type] = null;
+                }
+            },
+            getEvent: function (event) {
+                return event ? event : window.event;
+            },
+            preventDefault : function (event) {
+                if(event.preventDefault){
+                    event.preventDefault();
+                }else {
+                    event.returnValue = false;
+                }
+            },
+            stopPropagation : function (event) {
+                if(event.stopPropagation) {
+                    event.stopPropagation();
+                }else {
+                    event.cancelBubble = true;
+                }
+            }
+        };
+
+        EventUtil.addHandler(btn, "click", handler);
+    </script>
+</body>
+</html>
